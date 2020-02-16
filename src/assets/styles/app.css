@@ -1,31 +1,40 @@
 body {
   background-color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333333;
 }
 
 .app {
-  margin: 1rem;
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 1rem auto;
+  max-width: 660px;
 }
 
 h1 {
-  background-color: #def1f4;
   font-size: 18px;
   font-weight: bold;
   padding: 6px 12px;
 }
 
-button {
-  background-color: black;
-  color: aliceblue;
-  border-radius: 4px;
-  padding: 6px 20px;
+.product-header {
+  background-color: #def1f4;
+  position: relative;
+}
+
+.product-header select {
+  position: absolute;
+  right: 10px; top: 7px;
 }
 
 .product-container {
   border-left: 1px solid #e1e1e1;
   margin: 8px 0; padding: 8px 0;
 }
-.product-container ul { margin: 0; padding: 0; list-style: none;}
+
+.product-container ul { margin: 0; padding: 0; list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
 
 .product-container li {
   display: inline-block;
@@ -36,5 +45,53 @@ button {
   box-sizing: border-box;
 }
 
+.product-image img {
+  width: 100%;
+}
 
+.product-banners, .product-cta {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-content: flex-end;
+}
 
+.product-banners {
+  height: 26px;
+  margin-top: -12px;
+  margin-bottom: 6px;
+}
+
+.product-name {
+  font-size: 12px;
+}
+
+.product-price {
+  font-size: 18px;
+}
+
+.product-sale, .product-merchandising {
+  font-size: 8px;
+  color: #ffffff;
+  padding: 6px 12px;
+}
+
+.product-sale {
+  background-color: #cc3333;
+}
+
+.product-merchandising {
+  background-color: #009900;
+}
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .product-container li {
+      width: 50%;
+    }
+}
