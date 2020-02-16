@@ -1,44 +1,34 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
-class ProductHeader extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      items: {},
-      defaultSize: ''
-    }
-  }
+function ProductHeader() {
+  
+  const [defaultDressSize, useDressSize] = useState('XL');
 
-  handleChange(e) {
-    this.setState({
-      defaultSize: e.target.value
-    });
-  }
-
-  render() {
-    return(
-      <>
-      <div className="product-header">
-        <h1 className="product-title">Women’s tops</h1>
-        <div>
-          <select
-            className="product-filter"
-            value={this.state.defaultSize}
-            onChange={(e) => {
-              this.handleChange(e)
-            }}
-          >
-            <option value="">Filter by size</option>
-            <option value="XL">Size XL</option>
-            <option value="L">Size L</option>
-            <option value="S">Size S</option>
-            <option value="XS">Size XS</option>
-          </select>
-        </div>
+  useEffect(() => {
+    // Update the document title using the browser API
+    document.title = `You clicked ${defaultDressSize} times`;
+  });
+  
+  return(
+    <>
+    <div className="product-header">
+      <h1 className="product-title">Women’s tops</h1>
+      <div>
+        <select
+          className="product-filter"
+          value={defaultDressSize}
+          onChange={(e) => {useDressSize(e.target.value)}}
+        >
+          <option value="">Filter by size</option>
+          <option value="XL">Size XL</option>
+          <option value="L">Size L</option>
+          <option value="S">Size S</option>
+          <option value="XS">Size XS</option>
+        </select>
       </div>
-      </>
-    )
-  }
+    </div>
+    </>
+  )
 }
 
 export default ProductHeader;

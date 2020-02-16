@@ -2,13 +2,13 @@ import React, { Component} from "react";
 import "../assets/styles/app.css";
 
 import ProductHeader from "./ProductHeader.js";
-import Products from "./Products";
+import ProductList from "./ProductList";
 
 function App() {
   return(
     <div className="app">
       <ProductHeader />
-      <Products />
+      <ProductList />
     </div>
   );
 }

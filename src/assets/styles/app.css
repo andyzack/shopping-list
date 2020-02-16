@@ -27,7 +27,7 @@ h1 {
 
 .product-container {
   border-left: 1px solid #e1e1e1;
-  margin: 8px 0; padding: 8px 0;
+  margin: 8px 0; padding: 0;
 }
 
 .product-container ul { margin: 0; padding: 0; list-style: none;
