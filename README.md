@@ -9,7 +9,7 @@ Preview: https://andrewaz.com/shopping-list/
 
 > <kbd> git clone https://github.com/andyzack/shopping-list.git [ENTER]</kbd>
 
-> <kbd> npm install</kbd>
+> <kbd> npm install [ENTER]</kbd>
 
 In the project directory, you can run:
 
@@ -38,21 +38,23 @@ https://andrewaz.com/shopping-list/
 ### Folder Structure
 ```
 shopping-list
-	|___ src
-	|	|___ assets
-	|		|___ images
-	|		|___ styles
-	|	|___ components
-	|		|___ App.js
-	|		|___ App.test.js
-	|		|___ ProductCard.js
-	|		|___ ProductList.js
-	|	|___ data
-	|		|___ apiservices.js
-	|		|___ images.js
-	|		|___ products.js
-	|___ dist (*)
-	|___ public
+|___ src
+|	|___ assets
+|		|___ images
+|		|___ styles
+|	|___ components
+|		|___ App.js
+|		|___ App.test.js
+|		|___ ProductCard.js
+|		|___ ProductList.js
+|	|___ data
+|		|___ apiservices.js
+|		|___ images.js
+|		|___ products.js
+|___ dist (*)
+|___ public
+
+```
 
 ## References:
 ### Creating a React app from scratch
