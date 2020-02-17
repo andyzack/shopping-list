@@ -3,8 +3,11 @@ import IMAGES from '../data/images';
 
 function ProductCard(props) {
 
+  // 1a. Get image data
   const imgdata = [ IMAGES ]
-  const { index, productImage, productName, price, isSale, isExclusive, num } = props.product;
+
+  // 1b. Render props
+  const { index, productImage, productName, price, isSale, isExclusive } = props.product;
   
   return(
     <>

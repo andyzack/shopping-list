@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import APISERVICES from '../data/apiservices';
 import ProductCard from './ProductCard';
+import ProductOptions from './ProductOptions';
 
 function ProductList() {
   
@@ -11,12 +12,10 @@ function ProductList() {
   const [loading, setLoading] = useState(true);
   const [hasError, setErrors] = useState(false);
 
-  // 3b. Use an effect to fetch data using API Service
+  // 3a. Use an effect to fetch data using API Service
   useEffect(() => {
     APISERVICES()
-    .then(data => {
-      setData(data)
-    })
+    .then(setData)
     .catch(err => setErrors(err))
   }, []);
 
@@ -35,7 +34,16 @@ function ProductList() {
     setCount(dataSelected.length);
   }
 
-  return(
+  // 3b. Helper function to handle menu list (WORK IN PROGRESS)
+  let [dressOption, setDressOption] = useState('');
+  function handleClick(data) {
+    let idata = data.map(items => items.size)
+                .flat()
+                .reduce((acc, curr) => acc.includes(curr) ? acc : [...acc, curr], []);
+    setDressOption(idata);
+  }
+
+  return( 
     <>
     <div className="product-header">
       <h1 className="product-title">Women’s tops</h1>
@@ -44,11 +52,7 @@ function ProductList() {
         value={dressSize}
         onChange={(e) => {handleChange(e.target.value, data)}}
       >
-        <option value="">Filter by size</option>
-        <option value="XL">Size XL</option>
-        <option value="L">Size L</option>
-        <option value="S">Size S</option>
-        <option value="XS">Size XS</option>
+        <ProductOptions items={dressOption} />
       </select>
     </div>
     <div className="product-container">
