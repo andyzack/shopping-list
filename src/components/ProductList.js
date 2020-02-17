@@ -4,14 +4,14 @@ import ProductCard from './ProductCard';
 
 function ProductList() {
   
-  // 1A) Use the data state variable
+  // 1a. Use the data state variable
   const [data, setData] = useState([]);
 
-  // 2B) Use the loading state variable
+  // 2a. Use the loading state variable
   const [loading, setLoading] = useState(true);
   const [hasError, setErrors] = useState(false);
 
-  // 3B) Use an effect to fetch data using API Service
+  // 3b. Use an effect to fetch data using API Service
   useEffect(() => {
     APISERVICES()
     .then(data => {
@@ -20,22 +20,25 @@ function ProductList() {
     .catch(err => setErrors(err))
   }, []);
 
-  // 1B) Use the dress selected state variable
+  // 1b. Use the dress selected state variable
   const [dressSize, setDressSize] = useState('');
 
-  // 2B) Use the data selected state variable
+  // 2b. Use the data selected state variable
   let [dataSelected, setDataSelected] = useState([]);
+  const [count, setCount] = useState(4);
 
+  // 3b. Helper function to handle menu change
   function handleChange(val, data) {
     setDressSize(val)
     dataSelected = data.filter(item => item.size.includes(val));
-    setDataSelected(dataSelected)
+    setDataSelected(dataSelected);
+    setCount(dataSelected.length);
   }
 
   return(
     <>
     <div className="product-header">
-      <h1 className="product-title">Women’s tops {dressSize}</h1>
+      <h1 className="product-title">Women’s tops</h1>
       <select
         className="product-filter"
         value={dressSize}
@@ -54,14 +57,13 @@ function ProductList() {
         !hasError? (
           (dressSize == '')? (
             data.map(PRODUCT => (
-              <ProductCard key={PRODUCT.index} product={PRODUCT} />
+              <ProductCard key={PRODUCT.index} product={PRODUCT} num={count} />
             ))
           ) : (
             dataSelected.map(PRODUCT => (
-              <ProductCard key={PRODUCT.index} product={PRODUCT} />
+              <ProductCard key={PRODUCT.index} product={PRODUCT} num={count} />
             ))
           )
-
         ) : (<div>Error from API Service</div>)
       }
       </ul>

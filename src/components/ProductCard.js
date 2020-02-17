@@ -4,11 +4,11 @@ import IMAGES from '../data/images';
 function ProductCard(props) {
 
   const imgdata = [ IMAGES ]
-  const { index, productImage, productName, price, isSale, isExclusive, size } = props.product;
+  const { index, productImage, productName, price, isSale, isExclusive, num } = props.product;
   
   return(
     <>
-    <li>
+    <li className={"product col-" + props.num}>
       <div className="product-card">
         <div className="product-top">
 

@@ -22,11 +22,15 @@ h1 {
 
 .product-header select {
   position: absolute;
-  right: 10px; top: 7px;
+  right: 10px; top: 6px;
+  z-index: 10;
+  border: 1px solid #a4a4a4;
+  border-radius: 6px;
+  background-color: #f8f8f8;
+  padding: 2px;
 }
 
 .product-container {
-  border-left: 1px solid #e1e1e1;
   margin: 8px 0; padding: 0;
 }
 
@@ -41,11 +45,16 @@ h1 {
   width: 25%;
   padding: 10px;
   border: 1px solid #e1e1e1;
-  border-left: none;
   box-sizing: border-box;
 }
 
+.product-image {
+  text-align: center;
+}
+
 .product-image img {
+  max-height: 140px;
+  max-width: 140px;
   width: 100%;
 }
 
@@ -84,6 +93,14 @@ h1 {
   background-color: #009900;
 }
 
+.product-container li.col-3 {
+  width: 33.3333%;
+}
+
+.product-container li.col-2 {
+  width: 50%;
+}
+
 /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
 
 /* Portrait and Landscape */
@@ -92,6 +109,6 @@ h1 {
   and (max-device-width: 568px)
   and (-webkit-min-device-pixel-ratio: 2) {
     .product-container li {
-      width: 50%;
+      width: 50% !important;
     }
 }
