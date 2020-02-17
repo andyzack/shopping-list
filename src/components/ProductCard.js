@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import IMAGES from '../data/images';
 
 function ProductCard(props) {
@@ -50,5 +51,17 @@ function ProductCard(props) {
     </>
   )
 }
+
+// Typechecking With PropTypes
+
+ProductCard.propTypes = {
+  name: PropTypes.string,
+  index: PropTypes.number,
+  productImage: PropTypes.string,
+  productName: PropTypes.string,
+  price: PropTypes.string,
+  isSale: PropTypes.bool,
+  isExclusive: PropTypes.bool
+};
 
 export default ProductCard;
