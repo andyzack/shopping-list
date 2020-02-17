@@ -83,7 +83,7 @@ it('Render datas from the API', async () => {
   getData.mockResolvedValue(mockData)
   let debug
   await act(async () => {
-    :({debug} = render(<App/>))
+    ({debug} = render(<App/>))
   })
   debug()
 })

@@ -1,7 +1,15 @@
 # shopping-list
 Display shopping list using React
 
-## Available Scripts
+## Starting up the project
+
+This react app is build from scratch using webpack and Babel
+
+Preview: https://andrewaz.com/shopping-list/
+
+> <kbd> git clone https://github.com/andyzack/shopping-list.git [ENTER]</kbd>
+
+> <kbd> npm install</kbd>
 
 In the project directory, you can run:
 
@@ -27,7 +35,6 @@ Deploy the app in gh-pages <br />
 
 https://andrewaz.com/shopping-list/
 
-
 ### Folder Structure
 ```
 shopping-list
@@ -49,5 +56,13 @@ shopping-list
 
 ## References:
 ### Creating a React app from scratch
-https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658
+https://www.valentinog.com/blog/babel/
+
+### Hooks
+https://reactjs.org/docs/hooks-reference.html
+https://reactjs.org/docs/hooks-rules.html
+
+### Testing
+https://reactjs.org/docs/testing.html
+
 
