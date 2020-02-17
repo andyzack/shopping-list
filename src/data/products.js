@@ -1,5 +1,3 @@
-import React, { Component } from 'react';
-
 const PRODUCTS = 
   [
     {
@@ -74,6 +72,6 @@ const PRODUCTS =
       "productName": "Funnel Neck Swing Top",
      "size": ["XS", "S", "XL"]
     }
-  ];
+  ]
 
 export default PRODUCTS;
