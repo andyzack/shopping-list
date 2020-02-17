@@ -27,8 +27,6 @@ Deploy the app in gh-pages <br />
 
 https://andrewaz.com/shopping-list/
 
-Note: The images not loading in the above link, working on the fix, but at least you could see the functionality
-
 
 ### Folder Structure
 ```
