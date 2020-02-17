@@ -5,6 +5,7 @@ import { apiservices } from '../data/apiservices'
 
 jest.mock('../data/apiservices')
 
+/* THIS IS WORK IN PROGRESS */
 it('Render datas from the API', async () => {
   const mockData =   [
     {

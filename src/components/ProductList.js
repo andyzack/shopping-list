@@ -34,15 +34,6 @@ function ProductList() {
     setCount(dataSelected.length);
   }
 
-  // 3b. Helper function to handle menu list (WORK IN PROGRESS)
-  let [dressOption, setDressOption] = useState('');
-  function handleClick(data) {
-    let idata = data.map(items => items.size)
-                .flat()
-                .reduce((acc, curr) => acc.includes(curr) ? acc : [...acc, curr], []);
-    setDressOption(idata);
-  }
-
   return( 
     <>
     <div className="product-header">
@@ -52,7 +43,7 @@ function ProductList() {
         value={dressSize}
         onChange={(e) => {handleChange(e.target.value, data)}}
       >
-        <ProductOptions items={dressOption} />
+        <ProductOptions />
       </select>
     </div>
     <div className="product-container">
