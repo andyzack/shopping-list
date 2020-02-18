@@ -43,7 +43,7 @@ function ProductList() {
         value={dressSize}
         onChange={(e) => {handleChange(e.target.value, data)}}
       >
-        <ProductOptions />
+        <ProductOptions key={data.index} product={data} num={count} />
       </select>
     </div>
     <div className="product-container">

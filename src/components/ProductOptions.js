@@ -1,22 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 function ProductOptions(props) {
 
-  /* Build dropdown filters using API services (WORK IN PROGRESS) */
-  const [items] = useState([
-    {size: "XL"},
-    {size: "L"},
-    {size: "M"},
-    {size: "S"},
-    {size: "XS"}
-  ]);
+  let dataSizes = props.product.map(item => item.size).flat()
+  .reduce((prev, next) => prev.includes(next) ? prev : [...prev, next], []);
 
   return (
     <>
     <option value="">Filter by size</option>
     {
-      items.map(item => (
-        <option key={item.size} value={item.size}>Size {item.size}</option>
+      dataSizes.map(item => (
+        <option key={item} value={item}>Size {item}</option>
       ))
     }
     </>
