@@ -51,12 +51,12 @@ function ProductList() {
       {
         !hasError? (
           (dressSize == '')? (
-            data.map(PRODUCT => (
-              <ProductCard key={PRODUCT.index} product={PRODUCT} num={count} />
+            data.map(item => (
+              <ProductCard key={item.index} product={item} num={count} />
             ))
           ) : (
-            dataSelected.map(PRODUCT => (
-              <ProductCard key={PRODUCT.index} product={PRODUCT} num={count} />
+            dataSelected.map(item => (
+              <ProductCard key={item.index} product={item} num={count} />
             ))
           )
         ) : (<div>Error from API Service</div>)
