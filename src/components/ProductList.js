@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import APISERVICES from '../data/apiservices';
 import ProductCard from './ProductCard';
 import ProductOptions from './ProductOptions';
+import IMAGES from '../data/images';
 
 function ProductList() {
   
@@ -24,14 +25,12 @@ function ProductList() {
 
   // 2b. Use the data selected state variable
   let [dataSelected, setDataSelected] = useState([]);
-  const [count, setCount] = useState(4);
 
   // 3b. Helper function to handle menu change
   function handleChange(val, data) {
     setDressSize(val)
     dataSelected = data.filter(item => item.size.includes(val));
     setDataSelected(dataSelected);
-    setCount(dataSelected.length);
   }
 
   return( 
@@ -43,23 +42,15 @@ function ProductList() {
         value={dressSize}
         onChange={(e) => {handleChange(e.target.value, data)}}
       >
-        <ProductOptions key={data.index} product={data} num={count} />
+        <ProductOptions items={data} />
       </select>
     </div>
     <div className="product-container">
       <ul>
       {
         !hasError? (
-          (dressSize == '')? (
-            data.map(item => (
-              <ProductCard key={item.index} product={item} num={count} />
-            ))
-          ) : (
-            dataSelected.map(item => (
-              <ProductCard key={item.index} product={item} num={count} />
-            ))
-          )
-        ) : (<div>Error from API Service</div>)
+          <ProductCard items={(dressSize == '') ? data : dataSelected} pics={IMAGES} />
+          ) : (<div>Error from API Service</div>)
       }
       </ul>
     </div>

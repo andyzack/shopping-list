@@ -1,53 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IMAGES from '../data/images';
 
 function ProductCard(props) {
 
   // 1a. Get image data
-  const imgdata = [ IMAGES ]
+  const pics = props.pics
 
-  // 1b. Render props
-  const { index, productImage, productName, price, isSale, isExclusive } = props.product;
-  
+  // 2. Get product data
+  const product = props.items
+
   return(
     <>
-    <li className={"product col-" + props.num}>
-      <div className="product-card">
-        <div className="product-top">
+    {
+      product.map(item => (
+        <li key={item.index} className={"product col-"+product.length}>
+        <div className="product-card">
+          <div className="product-top">
 
-          <div className="product-image">
-          {
-            imgdata.map(IMAGE => (
-              <img key={IMAGE[index].id} src={IMAGE[index].id == index? IMAGE[index].productImage : productImage} />
-            ))
-          }
-          </div>
-        </div>
-        <div className="product-bottom">
-          <div className="product-banners">
-            <div>
-            {
-              isSale? (
-                <span className="product-sale">Sale</span>
-              ):''
-            }
+            <div className="product-image">
+            <img src={pics[item.index].productImage} />
             </div>
-            <div>
-            {
-              isExclusive? (
-                <span className="product-merchandising">Exclusive</span>
-              ):''
-            }
-            </div>  
           </div>
-          <div className="product-cta">
-            <span className="product-name">{productName}</span>
-            <span className="product-price">{price}</span>
+          <div className="product-bottom">
+            <div className="product-banners">
+              <div>
+              {
+                item.isSale? (
+                  <span className="product-sale">Sale</span>
+                ):''
+              }
+              </div>
+              <div>
+              {
+                item.isExclusive? (
+                  <span className="product-merchandising">Exclusive</span>
+                ):''
+              }
+              </div>  
+            </div>
+            <div className="product-cta">
+              <span className="product-name">{item.productName}</span>
+              <span className="product-price">{item.price}</span>
+            </div>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
+      ))
+    }
     </>
   )
 }
