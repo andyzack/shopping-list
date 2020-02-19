@@ -50,7 +50,7 @@ function ProductList() {
       {
         !hasError? (
           <ProductCard items={(dressSize == '') ? data : dataSelected} pics={IMAGES} />
-          ) : (<div>Error from API Service</div>)
+          ) : <li className="col-error">There has been a problem with your fetch operation/API Service!</li>
       }
       </ul>
     </div>
