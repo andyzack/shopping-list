@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import ProductOptions from './ProductOptions';
 import IMAGES from '../data/images';
+import ErrorBoundary from '../error-boundary';
 
 function ProductList() {
   
@@ -71,7 +72,9 @@ function ProductList() {
         value={dressSize}
         onChange={(e) => {handleChange(e.target.value, data)}}
       >
+      <ErrorBoundary>
         <ProductOptions items={data} />
+      </ErrorBoundary>
       </select>
     </div>
     <div className="product-container">
@@ -83,7 +86,9 @@ function ProductList() {
       }
       {
         !hasError? (
-          <ProductCard items={(dressSize == '') ? data : dataSelected} pics={IMAGES} />
+          <ErrorBoundary>
+            <ProductCard items={(dressSize == '') ? data : dataSelected} pics={IMAGES} />
+          </ErrorBoundary>
           ) : <li className="col-error">There has been a problem with your fetch operation/API Service!</li>
       }
       </ul>
