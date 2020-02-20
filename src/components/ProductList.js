@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import APISERVICES from '../data/apiservices';
 import ProductCard from './ProductCard';
 import ProductOptions from './ProductOptions';
 import IMAGES from '../data/images';
@@ -14,11 +13,41 @@ function ProductList() {
   const [hasError, setErrors] = useState(false);
 
   // 3a. Use an effect to fetch data using API Service
+  const url = 'https://api.jsonbin.io/b/5cae9a54fb42337645ebcad3'
+
   useEffect(() => {
-    APISERVICES()
-    .then(setData)
-    .catch(err => setErrors(err))
+    fetch(url)
+    .then(res => {
+      if (!res.ok) {
+        return Promise.rejected(
+          new Error('Network response was not ok')
+        )
+      }
+      return res.json()
+    })
+    .then(data => {
+      getProductData(data)
+    })
+    .catch(err => {
+      setErrors(err)
+      setLoading(false)
+    })
   }, []);
+
+  function getProductData(data) {
+    setLoading(true)
+    sleep(2000)
+    .then(() => {
+      setData(data)
+      setLoading(false)
+    })
+  }
+
+  function sleep(ms) {
+    return new Promise(resolve => {
+      setTimeout(resolve, ms)
+    })
+  }
 
   // 1b. Use the dress selected state variable
   const [dressSize, setDressSize] = useState('');
@@ -47,6 +76,11 @@ function ProductList() {
     </div>
     <div className="product-container">
       <ul>
+      {
+        loading? (
+          <li className="col-error"><div className="loader"></div></li>
+        ) : ''
+      }
       {
         !hasError? (
           <ProductCard items={(dressSize == '') ? data : dataSelected} pics={IMAGES} />
