@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import product1 from "../assets/images/product-1.jpg"
 import product2 from "../assets/images/product-2.jpg"
 import product3 from "../assets/images/product-3.jpg"

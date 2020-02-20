@@ -36,7 +36,6 @@ function ProductList() {
   }, []);
 
   function getProductData(data) {
-    setLoading(true)
     sleep(2000)
     .then(() => {
       setData(data)
@@ -77,7 +76,7 @@ function ProductList() {
       </ErrorBoundary>
       </select>
     </div>
-    <div className="product-container">
+    <div className={"product-container " + (loading? "out" : "in")}>
       <ul>
       {
         loading? (

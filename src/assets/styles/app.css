@@ -45,6 +45,7 @@ h1 {
   width: 25%;
   padding: 10px;
   border: 1px solid #e1e1e1;
+  background-color: white;
   box-sizing: border-box;
 }
 
@@ -108,7 +109,7 @@ h1 {
 
 /* SPINNER */
 .loader {
-  margin: 5rem auto;
+  margin: 7rem auto 0;
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid #3498db; /* Blue */
   border-radius: 50%;
@@ -120,6 +121,28 @@ h1 {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* ANIMATION */
+.product-container.in {
+  transition: all 0.9s ease;
+  background: white;
+}
+.product-container.out {
+  background: #eef1f1;
+}
+
+.product-container.out li {
+  border: none; min-height: 428px;
+  padding: 10px;
+}
+
+.product:hover {
+  box-shadow: inset 0 0 0 2px #53a7ea;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  transition: all 0.3s ease;
 }
 
 /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
