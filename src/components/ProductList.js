@@ -4,50 +4,15 @@ import ProductOptions from './ProductOptions';
 import IMAGES from '../data/images';
 import ErrorBoundary from '../error-boundary';
 
-function ProductList() {
-  
-  // 1a. Use the data state variable
-  const [data, setData] = useState([]);
+import useCustomFetch from '../data/useCustomFetch'
 
-  // 2a. Use the loading state variable
-  const [loading, setLoading] = useState(true);
-  const [hasError, setErrors] = useState(false);
+function ProductList() {
+
+  
 
   // 3a. Use an effect to fetch data using API Service
-  const url = 'https://api.jsonbin.io/b/5cae9a54fb42337645ebcad3'
-
-  useEffect(() => {
-    fetch(url)
-    .then(res => {
-      if (!res.ok) {
-        return Promise.rejected(
-          new Error('Network response was not ok')
-        )
-      }
-      return res.json()
-    })
-    .then(data => {
-      getProductData(data)
-    })
-    .catch(err => {
-      setErrors(err)
-      setLoading(false)
-    })
-  }, []);
-
-  function getProductData(data) {
-    sleep(2000)
-    .then(() => {
-      setData(data)
-      setLoading(false)
-    })
-  }
-
-  function sleep(ms) {
-    return new Promise(resolve => {
-      setTimeout(resolve, ms)
-    })
-  }
+  const url = 'https://api.jsonbin.io/b/5cae9a54fb42337645ebcad3';
+  const [data, loading, hasError] = useCustomFetch(url);
 
   // 1b. Use the dress selected state variable
   const [dressSize, setDressSize] = useState('');
