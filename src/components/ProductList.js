@@ -2,16 +2,17 @@ import React, { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import ProductOptions from './ProductOptions';
 import IMAGES from '../data/images';
+//import ShoppingData from '../data/db.json';
 import ErrorBoundary from '../error-boundary';
 
 import useCustomFetch from '../data/useCustomFetch'
 
 function ProductList() {
 
-  
-
   // 3a. Use an effect to fetch data using API Service
-  const url = 'https://api.jsonbin.io/b/5cae9a54fb42337645ebcad3';
+  const url = 'http://dev.tti.com.au/wp-content/themes/tti/js/db.json';
+
+  //const url = ShoppingData;
   const [data, loading, hasError] = useCustomFetch(url);
 
   // 1b. Use the dress selected state variable
